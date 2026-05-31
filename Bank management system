@@ -1,0 +1,28 @@
+user_name=input()
+print(f"Welcome to yourBank {user_name} !")
+list1=[]
+while(True):
+    print("select the service:")
+    print("1.Deposit")
+    print("2.WithDraw")
+    print("3.BalanceCheck")
+    print("4.exit")
+    user_service=input()
+    if(user_service=="1.Deposit"):
+        print("enter your deposit amount:")
+        deposit_amount=int(input())
+        list1.append(deposit_amount)
+    elif(user_service=="2.WithDraw"):
+        print("enter the amount you want to withdraw:")
+        withdraw_amount=int(input())
+        if withdraw_amount>list1[0]:
+            print("In sufficient_balance")
+        else:
+            list1[0]=list1[0]-withdraw_amount
+    elif(user_service=="3.BalanceCheck"):
+        Balance=list1[0]
+        print(Balance)
+    elif(user_service=="4.exit"):
+        break
+    else:
+        print("enter valid option")
