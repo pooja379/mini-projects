@@ -1,0 +1,37 @@
+print("!Welcome to track your personal expenses")
+Expenses={}
+def add_expense():
+    user_category=input("enter the category where you spend your money:")
+    user_money=int(input("enter the user amount:"))
+    if user_category in Expenses:
+                   Expenses[user_category]=Expenses.get(user_category,0)+user_money
+    else:
+        Expenses[user_category]=user_money
+    print("Category and Expenses added Successfully")
+def show_expenses():
+    for key,value in Expenses.items():
+        print(key,"->",value)
+def total_expense():
+    sum_expenses=sum(Expenses.values())
+    print("Total amount you spend is:",sum_expenses)
+def highest_expense():
+    max_expense=max(Expenses.values())
+    for key,value in Expenses.items():
+        if value==max_expense:
+            print(key,":",value)
+            break
+while(True):
+    print("--------Menu-------\n1.Add Expense\n2.Show All Expenses\n3.Calculate Total Expense\n4.Find Highest Expense\n5.Exit")
+    user_choice=int(input("enter what you want to do...."))
+    if(user_choice==1):
+        add_expense()
+    elif(user_choice==2):
+        show_expenses()
+    elif(user_choice==3):
+        total_expense()
+    elif(user_choice==4):
+        highest_expense()
+    elif(user_choice==5):
+        break
+    else:
+        print("enter the  valid user_choice........")
