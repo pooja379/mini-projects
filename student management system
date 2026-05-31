@@ -1,0 +1,50 @@
+student={}
+print("Welcome to the student management System")
+while(True):
+    print("----choose the option you want to do---------")
+    print("1.Add student")
+    print("2.Update student")
+    print("3.Delete student")
+    print("4.Search student")
+    print("5.Show the data")
+    print("6.exit")
+    choice=int(input("enter your option:"))
+    if(choice==1):
+        student_roll=input("enter the student_RollNumber:")
+        if(student_roll in student):
+            print("This roll_number already exsists in the dictionary")
+        else:
+            student_name=input("enter the student name:")
+            student_age=int(input("enter the student Age:"))
+            student[student_roll]={"name":student_name,"Age":student_age}
+            print("student added successfully")
+    elif(choice==2):
+        updated_rollno=input("enter the updated_rollno:")
+        if(updated_rollno in student):
+            student[student_roll]=updated_rollno
+            updated_option=input("enter the feature you want to get updated:")
+            if(updated_option=="name"):
+                updated_name=input("enter the updated_name:")
+                student[updated_rollno]["name"]=updated_name
+            if(updated_option=="Age"):
+                updated_age=int(input("enter the updated_Age:"))
+                student[updated_rollno]["Age"]=updated_age
+    elif(choice==3):
+        want_to_delete=input("enter the roll number of the student you want to delete:")
+        del student[want_to_delete]
+    elif(choice==4):
+        search_student=input("enter the rollno of the student to search:")
+        for i in student:
+            if i==search_student:
+                print(f"{search_student} is available in the data base")
+                print("Detalis:",student[search_student])
+                break
+        else:
+            print(f"{search_student} is not available in the data base")
+    elif(choice==5):
+        for key,value in student.items():
+            print(key,":",value)
+    elif(choice==6):
+        break
+    else:
+        print("enter the valid option:")
